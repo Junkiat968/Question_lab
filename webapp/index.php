@@ -12,7 +12,7 @@ session_start();
     
 function checkSearch($search){
 
-$xss =  "<>"
+$xss =  "<>";
 
 	//check xss
 	if (str_contains($verify[0], $search) || str_contains($verify[1], $search)){
@@ -20,10 +20,11 @@ $xss =  "<>"
 		$_POST = array();
 		header("location: index.php");
 		// die();
-
 	}
-	else if (){
-		
+	else if ($str_contains('%',$search))
+	{ // Else If score is less than 0
+		$_POST = array();
+		header("location: index.php");
 	}
 
 	else{
