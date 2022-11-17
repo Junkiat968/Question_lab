@@ -17,21 +17,6 @@ services:
     build: ./webapp
     ports:
       - "80:80"
-  sonarqube:
-    container_name: ci-sonarqube
-    image: sonarqube:community
-    environment:
-      SONAR_TELEMETRY_ENABLE: false
-      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: true
-    volumes:
-      - ./volumes/sonarqube-data:/opt/sonarqube/data
-      - ./volumes/sonarqube-extensions:/opt/sonarqube/extensions
-      - ./volumes/sonarqube-logs:/opt/sonarqube/logs
-    networks:
-      - docker
-    ports:
-      - "9000:9000"
-
 volumes:
   jenkins_data:
     driver: local
